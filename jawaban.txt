@@ -1,0 +1,44 @@
+1.
+soal : apa nama database yang digunakan pada tutorial ini
+jawab : DB = "uts"
+
+2.
+soal : sebutkan akses lain (seperti sintaks DDL/DML CYPHER) yang dapat digunakan untuk mengakses database lain dalam 1 instance
+jawab :
+# untuk melihat daftar database (SHOW DATABASES;)
+# contoh
+SHOW DATABASES;
+
+# memilih database yang akan digunakan (USE [nama_database])
+# contoh
+USE uts
+RETURN 'Berhasil menggunakan database uts' AS pesan;
+
+# melihat jumlah node di database terpilih
+(USE [nama_database] MATCH (n) RETURN COUNT(n) as jumlah_node;)
+# contoh
+USE uts
+MATCH (n)
+RETURN COUNT(n) as jumlah_node;
+
+# membuat database baru (CREATE DATABASE [nama_database])
+# contoh
+CREATE DATABASE test2;
+
+# pindah ke database lain (USE[nama_database])
+# contoh
+USE test
+RETURN 'Berhasil menggunakan database test' AS pesan;
+
+# melihat node di database baru (USE [nama_database] MATCH (n) RETURN COUNT(n) as jumlah_node;)
+# contoh
+USE test
+MATCH (n)
+RETURN COUNT(n) as jumlah_node;
+
+# hapus database (DROP DATABASE [nama_database])
+DROP DATABASE test;
+
+3.
+soal : apa jenis graf yang telah dibuat disini
+jawab : Graf berarah, karena pakai tanda panah (->) (directed graph),bukti = (n)-[:KNOWS]->(f) ,artinya n mengenal f
